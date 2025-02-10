@@ -1,0 +1,216 @@
+{
+  "hero": {
+    "badge": "A New Chapter Begins",
+    "title": "Following Our",
+    "subtitle": "Whippet Journey",
+    "description": "Join us in Munich as we document the beautiful journey of our whippet family. While all puppies have found their loving homes, we invite you to share in their growth and adventures.",
+    "viewJourney": "View Our Journey",
+    "services": "Professional Services",
+    "imageAlt": "Our beautiful whippet mother in a serene setting"
+  },
+  "admin": {
+    "login": {
+      "title": "Admin Login",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign In",
+      "error": "Invalid login credentials"
+    },
+    "dashboard": {
+      "title": "Admin Dashboard",
+      "logout": "Sign Out",
+      "puppies": "Manage Puppies",
+      "puppiesDesc": "Create and edit puppy profiles, upload photos, and update information",
+      "gallery": "Photo Gallery",
+      "galleryDesc": "Manage and organize photos of your whippets",
+      "content": "Edit Content",
+      "contentDesc": "Update website content and text",
+      "diary": "Diary Entries",
+      "diaryDesc": "Document the journey with diary entries and photos"
+    },
+    "puppies": {
+      "title": "Puppy Management",
+      "addNew": "Add New Puppy",
+      "edit": "Edit Puppy",
+      "create": "Create New Puppy",
+      "deleteConfirm": "Are you sure you want to delete this puppy?",
+      "form": {
+        "name": "Name",
+        "birthDate": "Birth Date",
+        "weight": "Weight",
+        "description": "Description",
+        "images": "Photos",
+        "uploading": "Uploading images...",
+        "cancel": "Cancel",
+        "save": "Save"
+      }
+    },
+    "diary": {
+      "title": "Diary Entries",
+      "addNew": "Add New Entry",
+      "edit": "Edit Entry",
+      "create": "Create New Entry",
+      "delete": "Delete Entry",
+      "deleteConfirm": "Are you sure you want to delete this entry?",
+      "categories": {
+        "general": "General",
+        "milestone": "Milestone",
+        "health": "Health",
+        "training": "Training"
+      },
+      "form": {
+        "title": "Title",
+        "date": "Date",
+        "category": "Category",
+        "content": "Content",
+        "images": "Photos",
+        "puppy": "Select Puppy",
+        "familyDiary": "Family Diary (All Puppies)",
+        "upload": "Upload photos",
+        "uploading": "Uploading images...",
+        "dragAndDrop": "Drag and drop images here",
+        "dropToUpload": "Drop images to upload",
+        "browse": "Browse Files",
+        "preview": "Image Preview",
+        "cancel": "Cancel",
+        "save": "Save"
+      }
+    }
+  },
+  "about": {
+    "title": "Expert Care & Championship Experience",
+    "description": "Meet Corinna Spitzer, a renowned Dog Physiotherapist in Munich and accomplished Flyball competitor. Her unique combination of physiotherapy expertise and competitive sports experience makes her the trusted choice for both rehabilitation and performance enhancement."
+  },
+  "services": {
+    "professionalCare": {
+      "title": "Professional Care",
+      "description": "Specialized physiotherapy services for dogs of all breeds, from rehabilitation to sports performance."
+    },
+    "sportsExcellence": {
+      "title": "Sports Excellence",
+      "description": "Official physiotherapist for European champion Flyball teams and active international competitor."
+    },
+    "expertise": {
+      "title": "Comprehensive Expertise",
+      "description": "Combining whippet breeding knowledge, sports medicine, and rehabilitation techniques."
+    }
+  },
+  "flyball": {
+    "title": "International Flyball Excellence",
+    "description": "As an active competitor in international Flyball events and the trusted physiotherapist for the European championship team, Corinna brings unique insights into canine sports medicine and performance optimization. This expertise translates into better care for all her patients, whether they're athletic competitors or beloved family pets.",
+    "competition": {
+      "title": "Competition Services",
+      "services": [
+        "Pre-competition conditioning",
+        "Performance enhancement therapy",
+        "Sports injury prevention",
+        "Recovery and rehabilitation"
+      ]
+    },
+    "general": {
+      "title": "General Services",
+      "services": [
+        "Rehabilitation therapy",
+        "Mobility improvement",
+        "Pain management",
+        "Post-surgery recovery"
+      ]
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "description": "Whether you're interested in following our whippet family's journey or seeking professional physiotherapy services for your canine companion, we'd love to hear from you.",
+    "details": {
+      "name": "Corinna Spitzer",
+      "title": "Professional Dog Physiotherapist",
+      "subtitle": "International Flyball Competitor",
+      "location": "Munich, Germany"
+    }
+  },
+  "footer": {
+    "about": {
+      "title": "About Corinna Spitzer",
+      "description": "Professional Dog Physiotherapist and International Flyball competitor based in Munich. Specializing in canine sports medicine, rehabilitation, and whippet breeding."
+    },
+    "services": {
+      "title": "Professional Services",
+      "item1": "Dog Physiotherapy",
+      "item2": "Sports Medicine & Rehabilitation",
+      "item3": "Performance Enhancement"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "location": "Munich, Germany",
+      "practice": "Dog Physiotherapy Munich",
+      "email": "contact@example.com"
+    },
+    "closing": "Dedicated to excellence in canine health and sports"
+  },
+  "language": {
+    "en": "English",
+    "de": "German"
+  },
+  "gallery": {
+    "title": "Puppy Gallery",
+    "filters": {
+      "all": "All Puppies",
+      "available": "Available",
+      "parents": "Parents"
+    },
+    "puppy": {
+      "imageAlt": "Photo of {name}",
+      "available": "Available",
+      "foundHome": "Found Home"
+    },
+    "noResults": "No puppies found for the selected filter."
+  },
+  "puppy": {
+    "notFound": {
+      "title": "Puppy Not Found",
+      "description": "The puppy you're looking for doesn't exist."
+    },
+    "imageAlt": "Photo of {name}",
+    "thumbnailAlt": "Photo {number} of {name}",
+    "born": "Born",
+    "weight": "Weight",
+    "traits": {
+      "title": "Personality Traits"
+    },
+    "parents": {
+      "title": "Parents",
+      "mother": "Mother",
+      "father": "Father"
+    },
+    "updates": {
+      "title": "Growth Updates",
+      "week": "Week {week}",
+      "imageAlt": "Week {week} update photo"
+    },
+    "diary": {
+      "title": "Diary Entries",
+      "noEntries": "No diary entries yet for this puppy."
+    }
+  },
+  "diary": {
+    "title": "Our Whippet Journey",
+    "description": "Follow along with our whippet family's adventures, milestones, and daily life through our diary entries.",
+    "puppyTitle": "{name}'s Journey",
+    "puppyDescription": "Follow {name}'s growth, milestones, and adventures through our diary entries.",
+    "latestEntries": "Latest Updates",
+    "viewAll": "View All Entries",
+    "noEntries": "No diary entries yet.",
+    "noPuppyEntries": "No diary entries for this puppy yet.",
+    "noCategoryEntries": "No entries found in the {category} category.",
+    "checkBackSoon": "Check back soon for new updates!",
+    "readMore": "Read More",
+    "backToDiary": "Back to Diary",
+    "entryNotFound": "Diary Entry Not Found",
+    "categories": {
+      "all": "All Entries",
+      "general": "General",
+      "milestone": "Milestone",
+      "health": "Health",
+      "training": "Training"
+    }
+  }
+} 

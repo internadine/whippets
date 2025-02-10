@@ -1,0 +1,73 @@
+{
+  "admin": {
+    "login": {
+      "title": "Admin Login",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "signIn": "Anmelden",
+      "error": "Ungültige Anmeldedaten"
+    },
+    "dashboard": {
+      "title": "Admin Dashboard",
+      "signOut": "Abmelden",
+      "puppies": "Welpen verwalten",
+      "gallery": "Fotogalerie",
+      "content": "Inhalt bearbeiten",
+      "diary": "Tagebucheinträge"
+    },
+    "puppies": {
+      "title": "Welpen verwalten",
+      "add": "Neuen Welpen hinzufügen",
+      "edit": "Welpen bearbeiten",
+      "delete": "Welpen löschen",
+      "name": "Name",
+      "birthDate": "Geburtsdatum",
+      "weight": "Gewicht",
+      "status": "Status",
+      "description": "Beschreibung",
+      "traits": "Eigenschaften",
+      "images": "Bilder",
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "confirmDelete": "Möchten Sie diesen Welpen wirklich löschen?"
+    },
+    "diary": {
+      "title": "Tagebucheinträge",
+      "add": "Neuen Eintrag hinzufügen",
+      "edit": "Eintrag bearbeiten",
+      "delete": "Eintrag löschen",
+      "date": "Datum",
+      "category": "Kategorie",
+      "content": "Inhalt",
+      "images": "Bilder",
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "confirmDelete": "Möchten Sie diesen Eintrag wirklich löschen?"
+    },
+    "content": {
+      "save": "Speichern",
+      "edit": "Bearbeiten",
+      "cancel": "Abbrechen"
+    }
+  },
+  "footer": {
+    "about": {
+      "title": "Über Corinna Spitzer",
+      "description": "Professionelle Hundephysiotherapeutin und internationale Flyball-Wettkämpferin in München. Spezialisiert auf Hundesportmedizin, Rehabilitation und Whippet-Zucht."
+    },
+    "services": {
+      "title": "Professionelle Dienste",
+      "item1": "Hundephysiotherapie",
+      "item2": "Sportmedizin & Rehabilitation",
+      "item3": "Leistungssteigerung"
+    },
+    "contact": {
+      "title": "Kontakt",
+      "location": "München, Deutschland",
+      "practice": "Hundephysiotherapie München",
+      "email": "kontakt@example.com"
+    },
+    "closing": "Engagement für Exzellenz in Hundegesundheit und Sport",
+    "admin": "Admin-Zugang"
+  }
+} 

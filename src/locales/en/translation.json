@@ -1,0 +1,73 @@
+{
+  "admin": {
+    "login": {
+      "title": "Admin Login",
+      "email": "Email",
+      "password": "Password",
+      "signIn": "Sign In",
+      "error": "Invalid login credentials"
+    },
+    "dashboard": {
+      "title": "Admin Dashboard",
+      "signOut": "Sign Out",
+      "puppies": "Manage Puppies",
+      "gallery": "Photo Gallery",
+      "content": "Edit Content",
+      "diary": "Diary Entries"
+    },
+    "puppies": {
+      "title": "Manage Puppies",
+      "add": "Add New Puppy",
+      "edit": "Edit Puppy",
+      "delete": "Delete Puppy",
+      "name": "Name",
+      "birthDate": "Birth Date",
+      "weight": "Weight",
+      "status": "Status",
+      "description": "Description",
+      "traits": "Traits",
+      "images": "Images",
+      "save": "Save",
+      "cancel": "Cancel",
+      "confirmDelete": "Are you sure you want to delete this puppy?"
+    },
+    "diary": {
+      "title": "Diary Entries",
+      "add": "Add New Entry",
+      "edit": "Edit Entry",
+      "delete": "Delete Entry",
+      "date": "Date",
+      "category": "Category",
+      "content": "Content",
+      "images": "Images",
+      "save": "Save",
+      "cancel": "Cancel",
+      "confirmDelete": "Are you sure you want to delete this entry?"
+    },
+    "content": {
+      "save": "Save",
+      "edit": "Edit",
+      "cancel": "Cancel"
+    }
+  },
+  "footer": {
+    "about": {
+      "title": "About Corinna Spitzer",
+      "description": "Professional Dog Physiotherapist and International Flyball competitor based in Munich. Specializing in canine sports medicine, rehabilitation, and whippet breeding."
+    },
+    "services": {
+      "title": "Professional Services",
+      "item1": "Dog Physiotherapy",
+      "item2": "Sports Medicine & Rehabilitation",
+      "item3": "Performance Enhancement"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "location": "Munich, Germany",
+      "practice": "Dog Physiotherapy Munich",
+      "email": "contact@example.com"
+    },
+    "closing": "Dedicated to excellence in canine health and sports",
+    "admin": "Admin Access"
+  }
+}

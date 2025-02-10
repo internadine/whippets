@@ -1,0 +1,19 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "diary",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "puppyId",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "date",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

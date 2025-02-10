@@ -1,0 +1,147 @@
+{
+  "hero": {
+    "badge": "Ein neues Kapitel beginnt",
+    "title": "Begleiten Sie unsere",
+    "subtitle": "Whippet Reise",
+    "description": "Begleiten Sie uns in München bei der Dokumentation der wunderbaren Reise unserer Whippet-Familie. Während alle Welpen bereits ihr liebevolles Zuhause gefunden haben, laden wir Sie ein, ihre Entwicklung und Abenteuer mitzuerleben.",
+    "viewJourney": "Reise ansehen",
+    "services": "Professionelle Dienste",
+    "imageAlt": "Unsere wunderschöne Whippet-Mutter in einer ruhigen Umgebung"
+  },
+  "about": {
+    "title": "Experten-Betreuung & Meisterschafts-Erfahrung",
+    "description": "Lernen Sie Corinna Spitzer kennen, eine renommierte Hundephysiotherapeutin in München und erfolgreiche Flyball-Wettkämpferin. Ihre einzigartige Kombination aus physiotherapeutischer Expertise und Wettkampferfahrung macht sie zur vertrauenswürdigen Wahl für Rehabilitation und Leistungssteigerung."
+  },
+  "services": {
+    "professionalCare": {
+      "title": "Professionelle Betreuung",
+      "description": "Spezialisierte Physiotherapie für Hunde aller Rassen, von Rehabilitation bis zur sportlichen Leistungssteigerung."
+    },
+    "sportsExcellence": {
+      "title": "Sportliche Exzellenz",
+      "description": "Offizielle Physiotherapeutin für europäische Flyball-Meisterteams und aktive internationale Wettkämpferin."
+    },
+    "expertise": {
+      "title": "Umfassende Expertise",
+      "description": "Kombination aus Whippet-Zuchtkenntnis, Sportmedizin und Rehabilitationstechniken."
+    }
+  },
+  "flyball": {
+    "title": "Internationale Flyball-Exzellenz",
+    "description": "Als aktive Teilnehmerin an internationalen Flyball-Wettkämpfen und vertrauenswürdige Physiotherapeutin des Europameisterteams bringt Corinna einzigartige Einblicke in die Hundesportmedizin und Leistungsoptimierung.",
+    "competition": {
+      "title": "Wettkampf-Services",
+      "services": [
+        "Wettkampfvorbereitung",
+        "Leistungssteigerungstherapie",
+        "Sportverletzungsprävention",
+        "Regeneration und Rehabilitation"
+      ]
+    },
+    "general": {
+      "title": "Allgemeine Services",
+      "services": [
+        "Rehabilitationstherapie",
+        "Mobilitätsverbesserung",
+        "Schmerzmanagement",
+        "Postoperative Rehabilitation"
+      ]
+    }
+  },
+  "contact": {
+    "title": "Kontakt",
+    "description": "Ob Sie Interesse an unserer Whippet-Familie haben oder professionelle Physiotherapie für Ihren Hund suchen, wir freuen uns von Ihnen zu hören.",
+    "details": {
+      "name": "Corinna Spitzer",
+      "title": "Professionelle Hundephysiotherapeutin",
+      "subtitle": "Internationale Flyball-Wettkämpferin",
+      "location": "München, Deutschland"
+    }
+  },
+  "footer": {
+    "about": {
+      "title": "Über Corinna Spitzer",
+      "description": "Professionelle Hundephysiotherapeutin und internationale Flyball-Wettkämpferin in München. Spezialisiert auf Hundesportmedizin, Rehabilitation und Whippet-Zucht."
+    },
+    "services": {
+      "title": "Professionelle Dienste",
+      "item1": "Hundephysiotherapie",
+      "item2": "Sportmedizin & Rehabilitation",
+      "item3": "Leistungssteigerung"
+    },
+    "contact": {
+      "title": "Kontakt",
+      "location": "München, Deutschland",
+      "practice": "Hundephysiotherapie München",
+      "email": "kontakt@example.com"
+    },
+    "closing": "Engagement für Exzellenz in Hundegesundheit und Sport"
+  },
+  "language": {
+    "en": "Englisch",
+    "de": "Deutsch"
+  },
+  "gallery": {
+    "title": "Welpen-Galerie",
+    "filters": {
+      "all": "Alle Welpen",
+      "available": "Verfügbar",
+      "parents": "Eltern"
+    },
+    "puppy": {
+      "imageAlt": "Foto von {name}",
+      "available": "Verfügbar",
+      "foundHome": "Neues Zuhause gefunden"
+    },
+    "noResults": "Keine Welpen für den ausgewählten Filter gefunden."
+  },
+  "diary": {
+    "title": "Unsere Whippet-Reise",
+    "description": "Verfolgen Sie die Abenteuer, Meilensteine und den Alltag unserer Whippet-Familie durch unsere Tagebucheinträge.",
+    "puppyTitle": "{name}s Reise",
+    "puppyDescription": "Verfolgen Sie {name}s Entwicklung, Meilensteine und Abenteuer durch unsere Tagebucheinträge.",
+    "latestEntries": "Neueste Updates",
+    "viewAll": "Alle Einträge ansehen",
+    "noEntries": "Noch keine Tagebucheinträge vorhanden.",
+    "noPuppyEntries": "Noch keine Tagebucheinträge für diesen Welpen vorhanden.",
+    "noCategoryEntries": "Keine Einträge in der Kategorie {category} gefunden.",
+    "checkBackSoon": "Schauen Sie bald wieder vorbei für neue Updates!",
+    "readMore": "Weiterlesen",
+    "backToDiary": "Zurück zum Tagebuch",
+    "entryNotFound": "Tagebucheintrag nicht gefunden",
+    "categories": {
+      "all": "Alle Einträge",
+      "general": "Allgemein",
+      "milestone": "Meilenstein",
+      "health": "Gesundheit",
+      "training": "Training"
+    }
+  },
+  "puppy": {
+    "notFound": {
+      "title": "Welpe nicht gefunden",
+      "description": "Der gesuchte Welpe existiert nicht."
+    },
+    "imageAlt": "Foto von {name}",
+    "thumbnailAlt": "Foto {number} von {name}",
+    "born": "Geboren",
+    "weight": "Gewicht",
+    "traits": {
+      "title": "Persönlichkeitsmerkmale"
+    },
+    "parents": {
+      "title": "Eltern",
+      "mother": "Mutter",
+      "father": "Vater"
+    },
+    "updates": {
+      "title": "Entwicklungs-Updates",
+      "week": "Woche {week}",
+      "imageAlt": "Foto der Woche {week}"
+    },
+    "diary": {
+      "title": "Tagebucheinträge",
+      "noEntries": "Noch keine Tagebucheinträge für diesen Welpen vorhanden."
+    }
+  }
+} 
