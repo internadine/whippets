@@ -40,19 +40,19 @@ const Home = () => {
     <div className="space-y-16">
       {/* Hero Section */}
       <section className="relative rounded-whippet overflow-hidden bg-whippet-50 border border-whippet-100">
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div className="p-8 md:p-12 lg:p-16 space-y-6">
+        <div className="grid lg:grid-cols-2 gap-8 items-center">
+          <div className="p-6 sm:p-8 md:p-12 lg:p-16 space-y-6">
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-whippet-100 text-whippet-600 font-medium text-sm">
               <SparklesIcon className="h-5 w-5 mr-2" />
               {t('hero.badge')}
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-800">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-800">
               {t('hero.title')} <br/>
               <span className="bg-gradient-to-r from-whippet-600 to-whippet-800 bg-clip-text text-transparent">
                 {t('hero.subtitle')}
               </span>
             </h1>
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
               {t('hero.description')}
             </p>
             <div className="flex flex-wrap gap-4">
@@ -64,22 +64,22 @@ const Home = () => {
               </a>
             </div>
           </div>
-          <div className="relative h-full min-h-[500px] md:min-h-0">
+          <div className="relative h-64 sm:h-80 lg:h-full lg:min-h-[500px]">
             <img
               src="/mom-whippet.jpg"
               alt={t('hero.imageAlt')}
-              className="absolute inset-0 w-full h-full object-cover rounded-whippet"
+              className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-whippet-900/20 to-transparent mix-blend-overlay rounded-whippet" />
+            <div className="absolute inset-0 bg-gradient-to-t from-whippet-900/20 to-transparent mix-blend-overlay" />
           </div>
         </div>
       </section>
 
       {/* Latest Diary Entries Section */}
-      <section className="bg-whippet-50 rounded-whippet p-8 md:p-12">
+      <section className="bg-whippet-50 rounded-whippet p-6 sm:p-8 md:p-12">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold text-gray-900 mb-4">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-display font-bold text-gray-900 mb-4">
               {t('diary.latestEntries')}
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -87,7 +87,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {latestDiaryEntries.map((entry) => (
               <Link
                 key={entry.id}
@@ -131,21 +131,25 @@ const Home = () => {
         </div>
       </section>
 
-      {/* About Corinna Section */}
+      {/* Services Section */}
       <section className="space-y-8" id="physio">
         <div className="text-center max-w-3xl mx-auto px-4">
-          <h2 className="section-title inline-block">{t('about.title')}</h2>
+          <h2 className="section-title inline-block text-2xl sm:text-3xl">
+            {t('about.title')}
+          </h2>
           <p className="text-gray-600 mt-4">
             {t('about.description')}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mt-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-12">
           <div className="card p-6 text-center space-y-4">
             <div className="w-16 h-16 bg-whippet-100 rounded-full flex items-center justify-center mx-auto">
               <HeartIcon className="h-8 w-8 text-whippet-600" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-800">{t('services.professionalCare.title')}</h3>
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-800">
+              {t('services.professionalCare.title')}
+            </h3>
             <p className="text-gray-600">
               {t('services.professionalCare.description')}
             </p>
@@ -154,7 +158,9 @@ const Home = () => {
             <div className="w-16 h-16 bg-whippet-100 rounded-full flex items-center justify-center mx-auto">
               <TrophyIcon className="h-8 w-8 text-whippet-600" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-800">{t('services.sportsExcellence.title')}</h3>
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-800">
+              {t('services.sportsExcellence.title')}
+            </h3>
             <p className="text-gray-600">
               {t('services.sportsExcellence.description')}
             </p>
@@ -163,7 +169,9 @@ const Home = () => {
             <div className="w-16 h-16 bg-whippet-100 rounded-full flex items-center justify-center mx-auto">
               <UserGroupIcon className="h-8 w-8 text-whippet-600" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-800">{t('services.expertise.title')}</h3>
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-800">
+              {t('services.expertise.title')}
+            </h3>
             <p className="text-gray-600">
               {t('services.expertise.description')}
             </p>
@@ -171,38 +179,12 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Flyball Section */}
-      <section className="bg-whippet-50 rounded-whippet p-8 md:p-12">
-        <div className="max-w-3xl mx-auto text-center space-y-6">
-          <h2 className="section-title inline-block">{t('flyball.title')}</h2>
-          <p className="text-gray-600">
-            {t('flyball.description')}
-          </p>
-          <div className="grid md:grid-cols-2 gap-8 mt-8">
-            <div className="card p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('flyball.competition.title')}</h3>
-              <ul className="text-gray-600 space-y-2 text-left">
-                {t('flyball.competition.services', { returnObjects: true }).map((service, index) => (
-                  <li key={index}>• {service}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="card p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('flyball.general.title')}</h3>
-              <ul className="text-gray-600 space-y-2 text-left">
-                {t('flyball.general.services', { returnObjects: true }).map((service, index) => (
-                  <li key={index}>• {service}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Contact Section */}
-      <section className="bg-cream-50 rounded-whippet p-8 md:p-12" id="contact">
+      <section className="bg-cream-50 rounded-whippet p-6 sm:p-8 md:p-12" id="contact">
         <div className="max-w-3xl mx-auto text-center space-y-6">
-          <h2 className="section-title inline-block">{t('contact.title')}</h2>
+          <h2 className="section-title inline-block text-2xl sm:text-3xl">
+            {t('contact.title')}
+          </h2>
           <p className="text-gray-600">
             {t('contact.description')}
           </p>
