@@ -3,8 +3,9 @@ import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from 'firebase
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { db, storage } from '../../firebaseConfig';
 import { PencilIcon, TrashIcon, PlusIcon } from '@heroicons/react/24/outline';
+import AdminNav from '../../components/AdminNav';
 
-const PuppyManager = () => {
+const BorderWhippetManager = () => {
   const [puppies, setPuppies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedPuppy, setSelectedPuppy] = useState(null);
@@ -53,14 +54,20 @@ const PuppyManager = () => {
 
     try {
       for (const file of files) {
-        const storageRef = ref(storage, `puppies/${Date.now()}_${file.name}`);
+        const isVideo = file.type.startsWith('video/');
+        const folder = isVideo ? 'videos' : 'puppies';
+        const storageRef = ref(storage, `${folder}/${Date.now()}_${file.name}`);
         const snapshot = await uploadBytes(storageRef, file);
         const url = await getDownloadURL(snapshot.ref);
-        uploadedUrls.push(url);
+        uploadedUrls.push({
+          url,
+          type: isVideo ? 'video' : 'image',
+          name: file.name
+        });
       }
       setImages(prev => [...prev, ...uploadedUrls]);
     } catch (error) {
-      console.error('Error uploading images:', error);
+      console.error('Error uploading files:', error);
     } finally {
       setUploading(false);
     }
@@ -159,7 +166,7 @@ const PuppyManager = () => {
     setIsDragging(false);
 
     const files = Array.from(e.dataTransfer.files).filter(file => 
-      file.type.startsWith('image/')
+      file.type.startsWith('image/') || file.type.startsWith('video/')
     );
     
     if (files.length > 0) {
@@ -182,19 +189,20 @@ const PuppyManager = () => {
   }
 
   return (
-    <div className="min-h-screen bg-cream-50 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-cream-50">
+      <AdminNav />
+      <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center mb-8">
           <div className="flex items-center space-x-4">
             <h1 className="text-3xl font-display font-bold text-gray-900">
-              Puppies
+              Border Whippets
             </h1>
             <div className="flex gap-2">
               <button
                 onClick={() => setFilter('all')}
                 className={`px-3 py-1 rounded-full text-sm ${
                   filter === 'all'
-                    ? 'bg-whippet-600 text-white'
+                    ? 'bg-purple-600 text-white'
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                 }`}
               >
@@ -204,7 +212,7 @@ const PuppyManager = () => {
                 onClick={() => setFilter('parents')}
                 className={`px-3 py-1 rounded-full text-sm ${
                   filter === 'parents'
-                    ? 'bg-whippet-600 text-white'
+                    ? 'bg-purple-600 text-white'
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                 }`}
               >
@@ -217,32 +225,18 @@ const PuppyManager = () => {
               resetForm();
               setIsModalOpen(true);
             }}
-            className="btn-primary flex items-center space-x-2"
+            className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-2 rounded-full flex items-center space-x-2 shadow-sm transition-colors"
           >
             <PlusIcon className="h-5 w-5" />
-            <span>Add Puppy</span>
+            <span>Add Border Whippet</span>
           </button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredPuppies.map((puppy) => (
-            <div key={puppy.id} className="bg-white rounded-whippet shadow-md overflow-hidden">
-              {puppy.images?.[0] && (
-                <div className="aspect-w-16 aspect-h-9 relative">
-                  <img
-                    src={puppy.images[0]}
-                    alt={puppy.name}
-                    className="w-full h-48 object-cover"
-                  />
-                  {puppy.isParent && (
-                    <div className="absolute top-4 left-4 bg-whippet-600 text-white px-3 py-1 rounded-full text-sm">
-                      Parent
-                    </div>
-                  )}
-                </div>
-              )}
+            <div key={puppy.id} className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="p-4">
-                <div className="flex justify-between items-start">
+                <div className="flex justify-between items-start mb-3">
                   <div>
                     <h2 className="text-xl font-semibold text-gray-900">{puppy.name}</h2>
                     <p className="text-sm text-gray-500">{puppy.birthDate}</p>
@@ -257,19 +251,48 @@ const PuppyManager = () => {
                   <div className="flex space-x-2">
                     <button
                       onClick={() => handleEdit(puppy)}
-                      className="p-2 text-gray-600 hover:text-whippet-600"
+                      className="p-2 text-gray-500 hover:text-purple-600 hover:bg-purple-50 rounded-full transition-colors"
                     >
                       <PencilIcon className="h-5 w-5" />
                     </button>
                     <button
                       onClick={() => handleDelete(puppy.id)}
-                      className="p-2 text-gray-600 hover:text-red-600"
+                      className="p-2 text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-full transition-colors"
                     >
                       <TrashIcon className="h-5 w-5" />
                     </button>
                   </div>
                 </div>
-                <p className="mt-2 text-gray-600 line-clamp-2">{puppy.description}</p>
+                
+                <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4">
+                  {puppy.images?.[0] && (
+                    <div className="sm:w-1/3 mb-3 sm:mb-0">
+                      <div className="relative">
+                        {typeof puppy.images[0] === 'object' && puppy.images[0].type === 'video' ? (
+                          <video
+                            src={puppy.images[0].url}
+                            className="w-full h-32 object-cover rounded-lg"
+                            controls
+                          ></video>
+                        ) : (
+                          <img
+                            src={typeof puppy.images[0] === 'object' ? puppy.images[0].url : puppy.images[0]}
+                            alt={puppy.name}
+                            className="w-full h-32 object-cover rounded-lg"
+                          />
+                        )}
+                        {puppy.isParent && (
+                          <div className="absolute top-2 left-2 bg-purple-600 text-white px-2 py-0.5 rounded-full text-xs">
+                            Parent Whippet
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                  <div className={puppy.images?.[0] ? "sm:w-2/3" : "w-full"}>
+                    <p className="text-gray-600 line-clamp-3">{puppy.description}</p>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
@@ -278,26 +301,56 @@ const PuppyManager = () => {
 
       {/* Puppy Form Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-8">
-          <div className="bg-white rounded-whippet max-w-2xl w-full max-h-[90vh] overflow-y-auto p-8">
-            <h2 className="text-2xl font-display font-bold text-gray-900 mb-8">
-              {selectedPuppy ? 'Edit Puppy' : 'Add Puppy'}
-            </h2>
-            <form onSubmit={handleSubmit} className="space-y-8">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-whippet-500 focus:border-whippet-500 px-4 py-3"
-                  required
-                />
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 overflow-y-auto">
+          <div className="bg-white rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            {/* Modal Header */}
+            <div className="sticky top-0 bg-white px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+              <h2 className="text-2xl font-display font-bold text-gray-900">
+                {selectedPuppy ? 'Edit Border Whippet' : 'Add Border Whippet'}
+              </h2>
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="text-gray-400 hover:text-gray-500 transition-colors"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Form Body */}
+            <form onSubmit={handleSubmit} className="p-6 space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Status
+                  </label>
+                  <select
+                    value={formData.status}
+                    onChange={(e) => setFormData({ ...formData, status: e.target.value })}
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                  >
+                    <option value="unavailable">Found New Home</option>
+                    <option value="available">Available</option>
+                    <option value="reserved">Reserved</option>
+                  </select>
+                </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Birth Date
@@ -306,10 +359,11 @@ const PuppyManager = () => {
                     type="date"
                     value={formData.birthDate}
                     onChange={(e) => setFormData({ ...formData, birthDate: e.target.value })}
-                    className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-whippet-500 focus:border-whippet-500 px-4 py-3"
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
                     required
                   />
                 </div>
+                
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Weight
@@ -318,37 +372,27 @@ const PuppyManager = () => {
                     type="text"
                     value={formData.weight}
                     onChange={(e) => setFormData({ ...formData, weight: e.target.value })}
-                    className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-whippet-500 focus:border-whippet-500 px-4 py-3"
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                    placeholder="e.g., 2.5 kg"
                     required
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Status
-                </label>
-                <select
-                  value={formData.status}
-                  onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                  className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-whippet-500 focus:border-whippet-500 px-4 py-3"
-                >
-                  <option value="unavailable">Found New Home</option>
-                  <option value="available">Available</option>
-                </select>
-              </div>
-
-              <div className="flex items-center space-x-2">
-                <input
-                  type="checkbox"
-                  id="isParent"
-                  checked={formData.isParent}
-                  onChange={(e) => setFormData({ ...formData, isParent: e.target.checked })}
-                  className="h-4 w-4 text-whippet-600 focus:ring-whippet-500 border-gray-300 rounded"
-                />
-                <label htmlFor="isParent" className="text-sm font-medium text-gray-700">
-                  Mark as Parent
-                </label>
+                <div className="flex items-center space-x-2 mb-2">
+                  <input
+                    type="checkbox"
+                    id="isParent"
+                    checked={formData.isParent}
+                    onChange={(e) => setFormData({ ...formData, isParent: e.target.checked })}
+                    className="h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded"
+                  />
+                  <label htmlFor="isParent" className="text-sm font-medium text-gray-700">
+                    Mark as Parent
+                  </label>
+                </div>
+                <p className="text-xs text-gray-500">Parent Border Whippets will be displayed with a special badge and can be filtered separately.</p>
               </div>
 
               <div>
@@ -359,12 +403,13 @@ const PuppyManager = () => {
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                   rows={4}
-                  className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-whippet-500 focus:border-whippet-500 px-4 py-3"
+                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all resize-none"
+                  placeholder="Enter details about the Border Whippet..."
                   required
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Mother
@@ -376,9 +421,11 @@ const PuppyManager = () => {
                       ...formData,
                       parents: { ...formData.parents, mother: e.target.value }
                     })}
-                    className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-whippet-500 focus:border-whippet-500 px-4 py-3"
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                    placeholder="Mother's name"
                   />
                 </div>
+                
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Father
@@ -390,72 +437,91 @@ const PuppyManager = () => {
                       ...formData,
                       parents: { ...formData.parents, father: e.target.value }
                     })}
-                    className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-whippet-500 focus:border-whippet-500 px-4 py-3"
+                    className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                    placeholder="Father's name"
                   />
                 </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Images
+                  Photos & Videos
                 </label>
                 <div
                   onDragEnter={handleDragEnter}
                   onDragOver={handleDragOver}
                   onDragLeave={handleDragLeave}
                   onDrop={handleDrop}
-                  className={`mt-1 flex justify-center px-6 py-6 border-2 ${
+                  className={`relative border-2 ${
                     isDragging 
-                      ? 'border-whippet-500 bg-whippet-50' 
+                      ? 'border-purple-500 bg-purple-50' 
                       : 'border-gray-300 border-dashed'
-                  } rounded-lg hover:border-whippet-500 transition-all`}
+                  } rounded-lg p-8 transition-all duration-200 ease-in-out hover:border-purple-500`}
                 >
                   <div className="text-center">
-                    <div className="flex flex-col items-center">
-                      <PlusIcon className={`mx-auto h-12 w-12 ${
-                        isDragging ? 'text-whippet-500' : 'text-gray-400'
-                      } transition-colors`} />
-                      <div className="flex text-sm text-gray-600">
-                        <label className="relative cursor-pointer rounded-md font-medium text-whippet-600 hover:text-whippet-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-whippet-500">
-                          <span className="inline-flex items-center px-4 py-2 border border-whippet-300 shadow-sm text-sm font-medium rounded-md text-whippet-600 bg-white hover:bg-whippet-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-whippet-500">
-                            Select Files
-                          </span>
-                          <input
-                            type="file"
-                            multiple
-                            accept="image/*"
-                            onChange={(e) => handleImageUpload(Array.from(e.target.files))}
-                            className="sr-only"
-                          />
-                        </label>
-                      </div>
-                      <p className="text-xs text-gray-500 mt-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className={`mx-auto h-12 w-12 ${
+                      isDragging ? 'text-purple-500' : 'text-gray-400'
+                    } transition-colors`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <div className="mt-4 flex flex-col items-center">
+                      <p className="text-sm text-gray-500">
                         {isDragging 
-                          ? 'Drop to upload'
-                          : 'Drag or click to select files'}
+                          ? 'Drop images or videos to upload'
+                          : 'Drag and drop files here'}
                       </p>
+                      <label className="mt-2 cursor-pointer">
+                        <span className="inline-flex items-center px-4 py-2 border border-purple-300 shadow-sm text-sm font-medium rounded-md text-purple-600 bg-white hover:bg-purple-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-colors">
+                          Select Files
+                        </span>
+                        <input
+                          type="file"
+                          multiple
+                          accept="image/*,video/*"
+                          onChange={(e) => handleImageUpload(Array.from(e.target.files))}
+                          className="sr-only"
+                        />
+                      </label>
                     </div>
                   </div>
                 </div>
+
                 {uploading && (
-                  <div className="mt-4 flex items-center justify-center text-sm text-gray-500">
-                    <div className="animate-spin rounded-full h-5 w-5 border-2 border-whippet-600 border-t-transparent mr-2"></div>
-                    Uploading
+                  <div className="mt-4 flex items-center justify-center space-x-2">
+                    <div className="animate-spin rounded-full h-5 w-5 border-2 border-purple-600 border-t-transparent"></div>
+                    <p className="text-sm text-gray-500">Uploading files...</p>
                   </div>
                 )}
+
                 {images.length > 0 && (
                   <div className="mt-6">
-                    <h4 className="text-sm font-medium text-gray-700 mb-3">Selected Images</h4>
-                    <div className="grid grid-cols-4 gap-4">
-                      {images.map((url, index) => (
-                        <div key={index} className="relative group">
-                          <img src={url} alt="" className="w-full h-24 object-cover rounded-lg" />
+                    <h4 className="text-sm font-medium text-gray-700 mb-3">
+                      File Preview
+                    </h4>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                      {images.map((file, index) => (
+                        <div key={index} className="relative group aspect-square">
+                          {typeof file === 'object' && file.type === 'video' ? (
+                            <video
+                              src={file.url}
+                              controls
+                              className="w-full h-full object-cover rounded-lg"
+                            ></video>
+                          ) : (
+                            <img
+                              src={typeof file === 'object' ? file.url : file}
+                              alt=""
+                              className="w-full h-full object-cover rounded-lg"
+                            />
+                          )}
                           <button
                             type="button"
                             onClick={() => setImages(images.filter((_, i) => i !== index))}
-                            className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"
+                            className="absolute top-2 right-2 p-1 bg-white/80 hover:bg-white rounded-full text-gray-600 hover:text-red-600 opacity-0 group-hover:opacity-100 transition-all duration-200"
                           >
-                            <TrashIcon className="h-6 w-6 text-white" />
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
                           </button>
                         </div>
                       ))}
@@ -464,17 +530,18 @@ const PuppyManager = () => {
                 )}
               </div>
 
-              <div className="flex justify-end space-x-4 pt-4">
+              {/* Modal Footer */}
+              <div className="sticky bottom-0 flex justify-end space-x-4 pt-6 border-t border-gray-200">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-6 py-3 text-gray-600 hover:text-gray-800"
+                  className="px-6 py-2 text-gray-700 hover:text-gray-900 font-medium transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="btn-primary px-8"
+                  className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-2 rounded-md shadow-sm disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                   disabled={uploading}
                 >
                   Save
@@ -488,4 +555,4 @@ const PuppyManager = () => {
   );
 };
 
-export default PuppyManager; 
+export default BorderWhippetManager; 

@@ -18,7 +18,7 @@ const Navbar = () => {
             </div>
             <div className="hidden sm:block">
               <span className="text-2xl font-display font-bold bg-gradient-to-r from-whippet-600 to-whippet-800 bg-clip-text text-transparent">
-                Whippet Puppies
+                Border Whippet's
               </span>
               <div className="text-sm text-gray-500">Elegant & Graceful Companions</div>
             </div>

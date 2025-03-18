@@ -3,6 +3,7 @@ import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, orderBy, query 
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { db, storage } from '../../firebaseConfig';
 import { PencilIcon, TrashIcon, PlusIcon, PhotoIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import AdminNav from '../../components/AdminNav';
 
 const DiaryManager = () => {
   const [entries, setEntries] = useState([]);
@@ -62,14 +63,20 @@ const DiaryManager = () => {
 
     try {
       for (const file of files) {
-        const storageRef = ref(storage, `diary/${Date.now()}_${file.name}`);
+        const isVideo = file.type.startsWith('video/');
+        const folder = isVideo ? 'videos' : 'diary';
+        const storageRef = ref(storage, `${folder}/${Date.now()}_${file.name}`);
         const snapshot = await uploadBytes(storageRef, file);
         const url = await getDownloadURL(snapshot.ref);
-        uploadedUrls.push(url);
+        uploadedUrls.push({
+          url,
+          type: isVideo ? 'video' : 'image',
+          name: file.name
+        });
       }
       setImages(prev => [...prev, ...uploadedUrls]);
     } catch (error) {
-      console.error('Error uploading images:', error);
+      console.error('Error uploading files:', error);
     } finally {
       setUploading(false);
     }
@@ -160,7 +167,7 @@ const DiaryManager = () => {
     setIsDragging(false);
 
     const files = Array.from(e.dataTransfer.files).filter(file => 
-      file.type.startsWith('image/')
+      file.type.startsWith('image/') || file.type.startsWith('video/')
     );
     
     if (files.length > 0) {
@@ -181,8 +188,9 @@ const DiaryManager = () => {
   }
 
   return (
-    <div className="min-h-screen bg-cream-50 py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-cream-50">
+      <AdminNav />
+      <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-display font-bold text-gray-900">
             Diary Entries
@@ -192,7 +200,7 @@ const DiaryManager = () => {
               resetForm();
               setIsModalOpen(true);
             }}
-            className="btn-primary flex items-center space-x-2"
+            className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-2 rounded-full flex items-center space-x-2 shadow-sm transition-colors"
           >
             <PlusIcon className="h-5 w-5" />
             <span>Add New Entry</span>
@@ -201,9 +209,9 @@ const DiaryManager = () => {
 
         <div className="space-y-6">
           {entries.map((entry) => (
-            <div key={entry.id} className="bg-white rounded-whippet shadow-md overflow-hidden">
+            <div key={entry.id} className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="p-6">
-                <div className="flex justify-between items-start">
+                <div className="flex justify-between items-start mb-4">
                   <div>
                     <h2 className="text-xl font-semibold text-gray-900">{entry.title}</h2>
                     <p className="text-sm text-gray-500">{new Date(entry.date).toLocaleDateString()}</p>
@@ -211,31 +219,55 @@ const DiaryManager = () => {
                   <div className="flex space-x-2">
                     <button
                       onClick={() => handleEdit(entry)}
-                      className="p-2 text-gray-600 hover:text-whippet-600"
+                      className="p-2 text-gray-500 hover:text-purple-600 hover:bg-purple-50 rounded-full transition-colors"
+                      aria-label="Edit entry"
                     >
                       <PencilIcon className="h-5 w-5" />
                     </button>
                     <button
                       onClick={() => handleDelete(entry.id)}
-                      className="p-2 text-gray-600 hover:text-red-600"
+                      className="p-2 text-gray-500 hover:text-red-600 hover:bg-red-50 rounded-full transition-colors"
+                      aria-label="Delete entry"
                     >
                       <TrashIcon className="h-5 w-5" />
                     </button>
                   </div>
                 </div>
-                <p className="mt-4 text-gray-600">{entry.content}</p>
-                {entry.images?.length > 0 && (
-                  <div className="mt-4 grid grid-cols-2 md:grid-cols-3 gap-4">
-                    {entry.images.map((url, index) => (
-                      <img
-                        key={index}
-                        src={url}
-                        alt=""
-                        className="w-full h-48 object-cover rounded-lg"
-                      />
-                    ))}
+                
+                <div className={`${entry.images?.length > 0 ? 'lg:flex lg:space-x-6' : ''}`}>
+                  <div className={`${entry.images?.length > 0 ? 'lg:flex-1 mb-4 lg:mb-0' : 'w-full'}`}>
+                    <p className="text-gray-600 whitespace-pre-line">{entry.content}</p>
                   </div>
-                )}
+                  
+                  {entry.images?.length > 0 && (
+                    <div className={`lg:w-5/12`}>
+                      <div className={`grid ${entry.images.length === 1 ? 'grid-cols-1' : 'grid-cols-2'} gap-3`}>
+                        {entry.images.map((item, index) => {
+                          // Check if the item is an object with type property (new format) or a string (old format)
+                          const isVideo = typeof item === 'object' && item.type === 'video';
+                          const url = typeof item === 'object' ? item.url : item;
+                          
+                          return isVideo ? (
+                            <div key={index} className="relative">
+                              <video 
+                                src={url}
+                                className="w-full h-36 object-cover rounded-lg shadow-sm"
+                                controls
+                              ></video>
+                            </div>
+                          ) : (
+                            <img
+                              key={index}
+                              src={url}
+                              alt=""
+                              className="w-full h-36 object-cover rounded-lg shadow-sm hover:opacity-90 transition-opacity"
+                            />
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           ))}
@@ -360,8 +392,8 @@ const DiaryManager = () => {
                     <div className="mt-4 flex flex-col items-center">
                       <p className="text-sm text-gray-500">
                         {isDragging 
-                          ? 'Drop images to upload'
-                          : 'Drag and drop images here'}
+                          ? 'Drop images or videos to upload'
+                          : 'Drag and drop files here'}
                       </p>
                       <label className="mt-2 cursor-pointer">
                         <span className="inline-flex items-center px-4 py-2 border border-whippet-300 shadow-sm text-sm font-medium rounded-md text-whippet-600 bg-white hover:bg-whippet-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-whippet-500 transition-colors">
@@ -370,7 +402,7 @@ const DiaryManager = () => {
                         <input
                           type="file"
                           multiple
-                          accept="image/*"
+                          accept="image/*,video/*"
                           onChange={(e) => handleImageUpload(Array.from(e.target.files))}
                           className="sr-only"
                         />
@@ -382,23 +414,31 @@ const DiaryManager = () => {
                 {uploading && (
                   <div className="mt-4 flex items-center justify-center space-x-2">
                     <div className="animate-spin rounded-full h-5 w-5 border-2 border-whippet-600 border-t-transparent"></div>
-                    <p className="text-sm text-gray-500">Uploading images...</p>
+                    <p className="text-sm text-gray-500">Uploading files...</p>
                   </div>
                 )}
 
                 {images.length > 0 && (
                   <div className="mt-6">
                     <h4 className="text-sm font-medium text-gray-700 mb-3">
-                      Image Preview
+                      File Preview
                     </h4>
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                      {images.map((url, index) => (
+                      {images.map((file, index) => (
                         <div key={index} className="relative group aspect-square">
-                          <img
-                            src={url}
-                            alt=""
-                            className="w-full h-full object-cover rounded-lg"
-                          />
+                          {file.type === 'video' ? (
+                            <video
+                              src={file.url}
+                              controls
+                              className="w-full h-full object-cover rounded-lg"
+                            ></video>
+                          ) : (
+                            <img
+                              src={file.url}
+                              alt={file.name}
+                              className="w-full h-full object-cover rounded-lg"
+                            />
+                          )}
                           <button
                             type="button"
                             onClick={() => removeImage(index)}

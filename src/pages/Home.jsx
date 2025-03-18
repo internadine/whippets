@@ -75,6 +75,81 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Border Whippet Information Section */}
+      <section className="bg-white rounded-whippet p-6 sm:p-8 md:p-12 shadow-sm">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-6">
+            <h2 className="text-2xl sm:text-3xl font-display font-bold text-gray-900 mb-4">
+              About Border Whippets
+            </h2>
+            <p className="text-gray-600">
+              Border Whippets are a wonderful mix between Border Collies and Whippets, combining the intelligence and work ethic of the Border Collie with the speed and grace of the Whippet.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-6 mt-8">
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-gray-800">Breed Characteristics</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li className="flex items-start">
+                  <svg className="h-5 w-5 text-whippet-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Intelligent and highly trainable like Border Collies</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="h-5 w-5 text-whippet-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Athletic with the speed and grace of Whippets</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="h-5 w-5 text-whippet-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Loving and loyal family companions</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="h-5 w-5 text-whippet-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Excellent for active families who enjoy outdoor activities</span>
+                </li>
+              </ul>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-gray-800">Perfect For</h3>
+              <ul className="space-y-2 text-gray-600">
+                <li className="flex items-start">
+                  <svg className="h-5 w-5 text-whippet-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Dog sports like flyball, agility, and coursing</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="h-5 w-5 text-whippet-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Hiking and outdoor adventures</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="h-5 w-5 text-whippet-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Families looking for an intelligent and athletic companion</span>
+                </li>
+                <li className="flex items-start">
+                  <svg className="h-5 w-5 text-whippet-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>People who appreciate both brains and beauty in their canine companions</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Latest Diary Entries Section */}
       <section className="bg-whippet-50 rounded-whippet p-6 sm:p-8 md:p-12">
         <div className="max-w-7xl mx-auto">

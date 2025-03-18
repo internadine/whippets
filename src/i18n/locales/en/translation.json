@@ -2,11 +2,11 @@
   "hero": {
     "badge": "A New Chapter Begins",
     "title": "Following Our",
-    "subtitle": "Whippet Journey",
-    "description": "Join us in Munich as we document the beautiful journey of our whippet family. While all puppies have found their loving homes, we invite you to share in their growth and adventures.",
+    "subtitle": "Border Whippet Journey",
+    "description": "Join us in Munich as we document the beautiful journey of our Border Whippet family. These special puppies are a loving mix of Border Collie and Whippet, combining the best traits of both breeds. While all puppies have found their loving homes, we invite you to share in their growth and adventures.",
     "viewJourney": "View Our Journey",
     "services": "Professional Services",
-    "imageAlt": "Our beautiful whippet mother in a serene setting"
+    "imageAlt": "Our beautiful Border Whippet mother in a serene setting"
   },
   "admin": {
     "login": {
@@ -92,7 +92,7 @@
     },
     "expertise": {
       "title": "Comprehensive Expertise",
-      "description": "Combining whippet breeding knowledge, sports medicine, and rehabilitation techniques."
+      "description": "Combining Border Whippet breeding knowledge, sports medicine, and rehabilitation techniques."
     }
   },
   "flyball": {
@@ -119,7 +119,7 @@
   },
   "contact": {
     "title": "Get in Touch",
-    "description": "Whether you're interested in following our whippet family's journey or seeking professional physiotherapy services for your canine companion, we'd love to hear from you.",
+    "description": "Whether you're interested in following our Border Whippet family's journey or seeking professional physiotherapy services for your canine companion, we'd love to hear from you.",
     "details": {
       "name": "Corinna Spitzer",
       "title": "Professional Dog Physiotherapist",
@@ -130,7 +130,7 @@
   "footer": {
     "about": {
       "title": "About Corinna Spitzer",
-      "description": "Professional Dog Physiotherapist and International Flyball competitor based in Munich. Specializing in canine sports medicine, rehabilitation, and whippet breeding."
+      "description": "Professional Dog Physiotherapist and International Flyball competitor based in Munich. Specializing in canine sports medicine, rehabilitation, and Border Whippet breeding."
     },
     "services": {
       "title": "Professional Services",
@@ -192,8 +192,8 @@
     }
   },
   "diary": {
-    "title": "Our Whippet Journey",
-    "description": "Follow along with our whippet family's adventures, milestones, and daily life through our diary entries.",
+    "title": "Our Border Whippet Journey",
+    "description": "Follow along with our Border Whippet family's adventures, milestones, and daily life through our diary entries.",
     "puppyTitle": "{name}'s Journey",
     "puppyDescription": "Follow {name}'s growth, milestones, and adventures through our diary entries.",
     "latestEntries": "Latest Updates",

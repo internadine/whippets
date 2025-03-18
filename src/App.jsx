@@ -6,7 +6,7 @@ import DiaryPage from './pages/DiaryPage';
 import DiaryEntryPage from './pages/DiaryEntryPage';
 import Login from './pages/admin/Login';
 import AdminDashboard from './pages/admin/Dashboard';
-import PuppyManager from './pages/admin/PuppyManager';
+import BorderWhippetManager from './pages/admin/PuppyManager';
 import DiaryManager from './pages/admin/DiaryManager';
 import ContentManager from './pages/admin/ContentManager';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -47,7 +47,7 @@ function App() {
             path="/admin/puppies"
             element={
               <ProtectedRoute>
-                <PuppyManager />
+                <BorderWhippetManager />
               </ProtectedRoute>
             }
           />
