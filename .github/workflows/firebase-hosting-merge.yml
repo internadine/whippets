@@ -24,8 +24,41 @@ jobs:
         with:
           node-version: '18'
           
+      - name: Debug - Check env vars
+        run: |
+          echo "Checking if env vars are set (will show 'set' or 'not set')"
+          if [ -n "$VITE_FIREBASE_API_KEY" ]; then echo "VITE_FIREBASE_API_KEY is set"; else echo "VITE_FIREBASE_API_KEY is not set"; fi
+          if [ -n "$VITE_FIREBASE_AUTH_DOMAIN" ]; then echo "VITE_FIREBASE_AUTH_DOMAIN is set"; else echo "VITE_FIREBASE_AUTH_DOMAIN is not set"; fi
+          if [ -n "$VITE_FIREBASE_PROJECT_ID" ]; then echo "VITE_FIREBASE_PROJECT_ID is set"; else echo "VITE_FIREBASE_PROJECT_ID is not set"; fi
+      
       - name: Install dependencies
         run: npm ci
+        
+      - name: Create Firebase config
+        run: |
+          cat > src/firebaseConfig.js << EOL
+          import { initializeApp } from "firebase/app";
+          import { getFirestore } from "firebase/firestore";
+          import { getStorage } from "firebase/storage";
+          import { getAuth } from "firebase/auth";
+
+          const firebaseConfig = {
+            apiKey: "${{ secrets.FIREBASE_API_KEY }}",
+            authDomain: "${{ secrets.FIREBASE_AUTH_DOMAIN }}",
+            projectId: "${{ secrets.FIREBASE_PROJECT_ID }}",
+            storageBucket: "${{ secrets.FIREBASE_STORAGE_BUCKET }}",
+            messagingSenderId: "${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}",
+            appId: "${{ secrets.FIREBASE_APP_ID }}"
+          };
+
+          const app = initializeApp(firebaseConfig);
+          const auth = getAuth(app);
+          const db = getFirestore(app);
+          const storage = getStorage(app);
+
+          export { auth, db, storage };
+          export default app;
+          EOL
         
       - name: Build
         run: npm run build
