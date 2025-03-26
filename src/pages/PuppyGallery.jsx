@@ -32,7 +32,7 @@ const PuppyGallery = () => {
   }, []);
 
   const filteredPuppies = puppies.filter(puppy => {
-    if (filter === 'all') return true;
+    if (filter === 'all') return !puppy.isParent;
     if (filter === 'parents') return puppy.isParent;
     return true;
   });
@@ -97,6 +97,21 @@ const PuppyGallery = () => {
                 {puppy.isParent && (
                   <div className="absolute top-4 left-4 bg-whippet-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                     {t('gallery.filters.parents')}
+                  </div>
+                )}
+                {!puppy.isParent && (
+                  <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-sm font-medium ${
+                    puppy.status === 'available' 
+                      ? 'bg-green-500 text-white' 
+                      : puppy.status === 'reserved'
+                        ? 'bg-amber-500 text-white'
+                        : 'bg-rose-500 text-white'
+                  }`}>
+                    {puppy.status === 'available' 
+                      ? t('gallery.status.available')
+                      : puppy.status === 'reserved'
+                        ? t('gallery.status.reserved')
+                        : t('gallery.status.adopted')}
                   </div>
                 )}
               </div>

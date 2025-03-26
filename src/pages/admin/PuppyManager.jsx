@@ -15,7 +15,7 @@ const BorderWhippetManager = () => {
     birthDate: '',
     weight: '',
     description: '',
-    status: 'unavailable',
+    status: 'adopted',
     isParent: false,
     traits: [],
     parents: {
@@ -135,7 +135,7 @@ const BorderWhippetManager = () => {
       birthDate: '',
       weight: '',
       description: '',
-      status: 'unavailable',
+      status: 'adopted',
       isParent: false,
       traits: [],
       parents: { mother: '', father: '' }
@@ -343,7 +343,7 @@ const BorderWhippetManager = () => {
                     onChange={(e) => setFormData({ ...formData, status: e.target.value })}
                     className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
                   >
-                    <option value="unavailable">Found New Home</option>
+                    <option value="adopted">Found New Home</option>
                     <option value="available">Available</option>
                     <option value="reserved">Reserved</option>
                   </select>

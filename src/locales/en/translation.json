@@ -69,5 +69,22 @@
     },
     "closing": "Dedicated to excellence in canine health and sports",
     "admin": "Admin Access"
+  },
+  "gallery": {
+    "title": "Puppy Gallery",
+    "filters": {
+      "all": "Puppies Only",
+      "parents": "Parents"
+    },
+    "status": {
+      "available": "Available",
+      "reserved": "Reserved",
+      "adopted": "Adopted",
+      "unavailable": "Unavailable"
+    },
+    "noResults": "No puppies found",
+    "puppy": {
+      "imageAlt": "Photo of {name}"
+    }
   }
 }

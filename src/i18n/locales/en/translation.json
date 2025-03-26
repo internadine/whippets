@@ -157,6 +157,12 @@
       "available": "Available",
       "parents": "Parents"
     },
+    "status": {
+      "available": "Available",
+      "reserved": "Reserved",
+      "adopted": "Adopted",
+      "unavailable": "Unavailable"
+    },
     "puppy": {
       "imageAlt": "Photo of {name}",
       "available": "Available",

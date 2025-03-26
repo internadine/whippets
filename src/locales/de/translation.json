@@ -69,5 +69,22 @@
     },
     "closing": "Engagement für Exzellenz in Hundegesundheit und Sport",
     "admin": "Admin-Zugang"
+  },
+  "gallery": {
+    "title": "Welpengalerie",
+    "filters": {
+      "all": "Nur Welpen",
+      "parents": "Eltern"
+    },
+    "status": {
+      "available": "Verfügbar",
+      "reserved": "Reserviert",
+      "adopted": "Adoptiert",
+      "unavailable": "Nicht verfügbar"
+    },
+    "noResults": "Keine Welpen gefunden",
+    "puppy": {
+      "imageAlt": "Foto von {name}"
+    }
   }
 } 

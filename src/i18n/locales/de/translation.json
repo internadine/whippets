@@ -82,16 +82,22 @@
     "de": "Deutsch"
   },
   "gallery": {
-    "title": "Welpen-Galerie",
+    "title": "Welpengalerie",
     "filters": {
       "all": "Alle Welpen",
       "available": "Verfügbar",
       "parents": "Eltern"
     },
+    "status": {
+      "available": "Verfügbar",
+      "reserved": "Reserviert",
+      "adopted": "Adoptiert",
+      "unavailable": "Nicht verfügbar"
+    },
     "puppy": {
       "imageAlt": "Foto von {name}",
       "available": "Verfügbar",
-      "foundHome": "Neues Zuhause gefunden"
+      "foundHome": "Hat ein Zuhause gefunden"
     },
     "noResults": "Keine Welpen für den ausgewählten Filter gefunden."
   },
