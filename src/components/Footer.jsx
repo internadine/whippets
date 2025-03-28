@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { HeartIcon, TrophyIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
+import Logo from './Logo';
 
 export default function Footer() {
   const { t, i18n } = useTranslation();
@@ -8,6 +9,23 @@ export default function Footer() {
   return (
     <footer className="bg-white border-t border-cream-100">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center mb-8">
+          <Logo size="xl" className="mb-4" />
+          <div className="flex gap-2">
+            <Link to="/physiotherapy" className="text-gray-500 hover:text-teal-600 transition-colors">
+              {t('navbar.physiotherapy')}
+            </Link>
+            <span className="text-gray-300">•</span>
+            <Link to="/breeding" className="text-gray-500 hover:text-whippet-600 transition-colors">
+              {t('navbar.breeding')}
+            </Link>
+            <span className="text-gray-300">•</span>
+            <Link to="/flyball" className="text-gray-500 hover:text-teal-600 transition-colors">
+              {t('navbar.flyball')}
+            </Link>
+          </div>
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* About Section */}
           <div>
@@ -49,14 +67,23 @@ export default function Footer() {
             <p className="text-center text-gray-500 flex items-center justify-center gap-2">
               {t('footer.closing')}
               <HeartIcon className="h-5 w-5 text-whippet-500" />
-              <TrophyIcon className="h-5 w-5 text-whippet-500" />
+              <TrophyIcon className="h-5 w-5 text-teal-500" />
             </p>
-            <Link 
-              to="/admin/login" 
-              className="text-sm text-gray-400 hover:text-whippet-600 transition-colors"
-            >
-              Admin
-            </Link>
+            <div className="flex items-center gap-4 text-sm">
+              <Link 
+                to="/imprint" 
+                className="text-gray-400 hover:text-teal-600 transition-colors"
+              >
+                Impressum
+              </Link>
+              <span className="text-gray-300">•</span>
+              <Link 
+                to="/admin/login" 
+                className="text-gray-400 hover:text-teal-600 transition-colors"
+              >
+                Admin
+              </Link>
+            </div>
           </div>
         </div>
       </div>

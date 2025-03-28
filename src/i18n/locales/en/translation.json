@@ -1,9 +1,9 @@
 {
   "hero": {
-    "badge": "A New Chapter Begins",
-    "title": "Following Our",
-    "subtitle": "Border Whippet Journey",
-    "description": "Join us in Munich as we document the beautiful journey of our Border Whippet family. These special puppies are a loving mix of Border Collie and Whippet, combining the best traits of both breeds. While all puppies have found their loving homes, we invite you to share in their growth and adventures.",
+    "badge": "Welcome",
+    "title": "Corinna Spitzer",
+    "subtitle": "Dog Expert",
+    "description": "Welcome to my world of canine expertise! As a passionate dog physiotherapist, experienced Border Whippet breeder, and dedicated flyball trainer, I'm excited to share our journey with you. Currently, we have adorable puppies growing up, being carefully trained to become the next generation of flyball champions. Whether you're interested in dog health, breeding, or sports - you've come to the right place!",
     "viewJourney": "View Our Journey",
     "services": "Professional Services",
     "imageAlt": "Our beautiful Border Whippet mother in a serene setting"
@@ -217,6 +217,129 @@
       "milestone": "Milestone",
       "health": "Health",
       "training": "Training"
+    }
+  },
+  "navbar": {
+    "tagline": "Dog Physiotherapy • Breeding • Flyball",
+    "physiotherapy": "Physiotherapy",
+    "breeding": "Breeding",
+    "flyball": "Flyball",
+    "gallery": "Gallery",
+    "diary": "Diary",
+    "contact": "Contact"
+  },
+  "physiotherapy": {
+    "title": "Dog Physiotherapy",
+    "subtitle": "Professional care for your canine companion",
+    "description": "Corinna Spitzer is a certified dog physiotherapist based in Munich, specializing in rehabilitation, sports medicine, and performance enhancement for dogs of all breeds and sizes.",
+    "services": {
+      "title": "Services",
+      "rehabilitation": {
+        "title": "Rehabilitation",
+        "description": "Specialized therapy for post-surgery recovery, injury rehabilitation, and chronic condition management."
+      },
+      "sportsMedicine": {
+        "title": "Sports Medicine",
+        "description": "Performance optimization and injury prevention for athletic and working dogs."
+      },
+      "geriatricCare": {
+        "title": "Geriatric Care",
+        "description": "Supportive therapy for senior dogs to maintain mobility and quality of life."
+      },
+      "consultations": {
+        "title": "Consultations",
+        "description": "Professional advice on home exercises, mobility aids, and adaptations for dogs with special needs."
+      }
+    },
+    "approach": {
+      "title": "My Approach",
+      "description": "Each treatment plan is individually tailored to your dog's specific needs, considering their breed, age, condition, and lifestyle. I combine traditional hands-on techniques with modern therapeutic equipment to achieve the best results for your canine companion."
+    },
+    "contact": {
+      "title": "Book an Appointment",
+      "description": "Contact me to schedule a consultation or treatment session for your dog."
+    }
+  },
+  "breeding": {
+    "title": "Border Whippet Breeding",
+    "subtitle": "Elegant & Graceful Companions",
+    "description": "Our breeding program focuses on producing healthy, well-tempered Border Whippet puppies that combine the intelligence of Border Collies with the grace and speed of Whippets.",
+    "about": {
+      "title": "About Border Whippets",
+      "description": "Border Whippets are an energetic crossbreed that inherit the intelligence and trainability of Border Collies alongside the swift, elegant movement of Whippets. These dogs excel in various dog sports while also making wonderful family companions."
+    },
+    "puppies": {
+      "title": "Our Puppies",
+      "description": "Follow the journey of our Border Whippet puppies through our gallery and diary entries. While all puppies from our current litter have found their forever homes, you can stay updated on future litters."
+    },
+    "parents": {
+      "title": "Meet the Parents",
+      "description": "Our carefully selected parent dogs bring the best qualities of both breeds, ensuring healthy, athletic puppies with excellent temperaments."
+    },
+    "contact": {
+      "title": "Interested in a Border Whippet?",
+      "description": "Contact us to learn more about our breeding program or to inquire about future litters."
+    }
+  },
+  "flyball": {
+    "title": "Flyball",
+    "subtitle": "Speed, Precision, Teamwork",
+    "description": "Corinna Spitzer is an active competitor in the German Flyball scene as part of Team Flyball-Junkies, with national and international successes including the German record of 15.93 seconds and the Vice-European Championship title in 2019 in Division 1.",
+    "achievements": {
+      "title": "Achievements",
+      "items": [
+        "German record of 15.93 seconds with Team Flyball-Junkies",
+        "Vice-European Champions 2019 in Division 1",
+        "Regular participant in national and international competitions"
+      ]
+    },
+    "yoda": {
+      "title": "Meet Yoda",
+      "description": "Yoda is considered one of the fastest Flyball dogs in Germany, with a running time of 3.48 seconds over the 15.55-meter course."
+    },
+    "involvement": {
+      "title": "Organizational Involvement",
+      "description": "Corinna is a licensed Flyball judge and contact person for Flyball at the German Association of Utility Dog Sports Clubs (DVG). She is also a member of the Flyball Committee of the German Kennel Club (VDH)."
+    },
+    "training": {
+      "title": "Training & Teamwork",
+      "description": "Together with Sebastian Dirksen (also Yoda's owner), Corinna regularly travels from Munich to Upper Franconia to train with Team Flyball Oberfranken."
+    },
+    "forEveryDog": {
+      "title": "Flyball for Every Dog",
+      "description": "Corinna emphasizes that Flyball is suitable for any healthy, motivated dog, regardless of breed or size. It's a fantastic sport that builds the bond between dog and handler while providing excellent physical and mental exercise."
+    }
+  },
+  "imprint": {
+    "title": "Legal Notice",
+    "legalInfo": "Information according to § 5 TMG",
+    "contact": "Contact",
+    "professionalTitle": "Professional Title and Regulations",
+    "professionalInfo": {
+      "title": "Professional Title: Dog Physiotherapist",
+      "country": "Awarded in: Germany"
+    },
+    "disputeResolution": {
+      "title": "Dispute Resolution",
+      "platform": "The European Commission provides a platform for online dispute resolution (OS)",
+      "participation": "We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board."
+    },
+    "liability": {
+      "content": {
+        "title": "Liability for Content",
+        "text1": "As a service provider, we are responsible for our own content on these pages in accordance with § 7 paragraph 1 TMG under general law. According to §§ 8 to 10 TMG, however, we are not obligated to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.",
+        "text2": "Obligations to remove or block the use of information under general laws remain unaffected. However, liability in this regard is only possible from the point in time at which a concrete legal violation becomes known. Upon becoming aware of corresponding legal violations, we will remove this content immediately."
+      },
+      "links": {
+        "title": "Liability for Links",
+        "text1": "Our offer contains links to external websites of third parties, on whose contents we have no influence. Therefore, we cannot assume any liability for these external contents. The respective provider or operator of the pages is always responsible for the content of the linked pages. The linked pages were checked for possible legal violations at the time of linking. Illegal content was not recognizable at the time of linking.",
+        "text2": "However, a permanent control of the content of the linked pages is not reasonable without concrete evidence of a violation of law. Upon becoming aware of legal violations, we will remove such links immediately."
+      }
+    },
+    "copyright": {
+      "title": "Copyright",
+      "text1": "The content and works created by the site operators on these pages are subject to German copyright law. The reproduction, editing, distribution and any kind of exploitation outside the limits of copyright require the written consent of the respective author or creator. Downloads and copies of this site are only permitted for private, non-commercial use.",
+      "text2": "Insofar as the content on this site was not created by the operator, the copyrights of third parties are respected. In particular, third-party content is marked as such. Should you nevertheless become aware of a copyright infringement, please inform us accordingly. Upon becoming aware of legal violations, we will remove such content immediately."
     }
   }
 } 

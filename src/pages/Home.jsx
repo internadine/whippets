@@ -4,6 +4,7 @@ import { db } from '../firebaseConfig';
 import { Link } from 'react-router-dom';
 import { TrophyIcon, HeartIcon, SparklesIcon, UserGroupIcon, CalendarIcon } from '@heroicons/react/24/outline';
 import { useTranslation } from 'react-i18next';
+import Logo from '../components/Logo';
 
 const Home = () => {
   const [featuredPuppies, setFeaturedPuppies] = useState([]);
@@ -42,26 +43,30 @@ const Home = () => {
       <section className="relative rounded-whippet overflow-hidden bg-whippet-50 border border-whippet-100">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           <div className="p-6 sm:p-8 md:p-12 lg:p-16 space-y-6">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-whippet-100 text-whippet-600 font-medium text-sm">
-              <SparklesIcon className="h-5 w-5 mr-2" />
-              {t('hero.badge')}
+            <div className="flex items-center gap-4">
+              <Logo size="xl" withText={false} />
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-whippet-100 text-teal-600 font-medium text-sm">
+                <SparklesIcon className="h-5 w-5 mr-2" />
+                {t('hero.badge')}
+              </div>
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-800">
-              {t('hero.title')} <br/>
-              <span className="bg-gradient-to-r from-whippet-600 to-whippet-800 bg-clip-text text-transparent">
-                {t('hero.subtitle')}
-              </span>
+              {t('hero.title')} <br />
+              <span className="text-whippet-600">{t('hero.subtitle')}</span>
             </h1>
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
               {t('hero.description')}
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/gallery" className="btn-primary">
-                {t('hero.viewJourney')}
+              <Link to="/physiotherapy" className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-full transition-colors">
+                {t('navbar.physiotherapy')}
               </Link>
-              <a href="#physio" className="btn-primary bg-white !text-whippet-600 border-2 border-whippet-200 hover:bg-whippet-50">
-                {t('hero.services')}
-              </a>
+              <Link to="/breeding" className="bg-white text-whippet-500 hover:text-whippet-600 hover:bg-whippet-50 border-2 border-whippet-200 px-6 py-3 rounded-full transition-colors">
+                {t('navbar.breeding')}
+              </Link>
+              <Link to="/flyball" className="bg-white text-teal-600 hover:text-teal-700 hover:bg-teal-50 border-2 border-teal-200 px-6 py-3 rounded-full transition-colors">
+                {t('navbar.flyball')}
+              </Link>
             </div>
           </div>
           <div className="relative h-64 sm:h-80 lg:h-full lg:min-h-[500px]">
@@ -70,81 +75,109 @@ const Home = () => {
               alt={t('hero.imageAlt')}
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-whippet-900/20 to-transparent mix-blend-overlay" />
+            <div className="absolute inset-0 bg-gradient-to-t from-teal-900/20 to-transparent mix-blend-overlay" />
           </div>
         </div>
       </section>
 
-      {/* Border Whippet Information Section */}
-      <section className="bg-white rounded-whippet p-6 sm:p-8 md:p-12 shadow-sm">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-6">
-            <h2 className="text-2xl sm:text-3xl font-display font-bold text-gray-900 mb-4">
-              About Border Whippets
-            </h2>
-            <p className="text-gray-600">
-              Border Whippets are a wonderful mix between Border Collies and Whippets, combining the intelligence and work ethic of the Border Collie with the speed and grace of the Whippet.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-6 mt-8">
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-gray-800">Breed Characteristics</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li className="flex items-start">
-                  <svg className="h-5 w-5 text-whippet-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Intelligent and highly trainable like Border Collies</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="h-5 w-5 text-whippet-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Athletic with the speed and grace of Whippets</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="h-5 w-5 text-whippet-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Loving and loyal family companions</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="h-5 w-5 text-whippet-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Excellent for active families who enjoy outdoor activities</span>
-                </li>
-              </ul>
+      {/* Three Main Sections */}
+      <section className="container mx-auto px-4 py-16">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">
+            Expert Areas
+          </h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Discover our three main areas of expertise in canine care and training
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Physiotherapy Card */}
+          <div className="group bg-gradient-to-b from-teal-50 to-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-teal-100">
+            <div className="p-8 text-center">
+              <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-teal-100 text-teal-600">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+                </svg>
+              </div>
+              <h2 className="text-2xl font-display font-bold text-gray-900 group-hover:text-teal-600 transition-colors mb-4">
+                {t('physiotherapy.title')}
+              </h2>
+              <p className="text-gray-600 mb-6">
+                {t('physiotherapy.description')}
+              </p>
+              <Link 
+                to="/physiotherapy" 
+                className="inline-flex items-center space-x-2 text-teal-600 hover:text-teal-700 font-medium group/link"
+              >
+                <span>{t('diary.readMore')}</span>
+                <svg 
+                  className="h-5 w-5 transform group-hover/link:translate-x-1 transition-transform" 
+                  viewBox="0 0 20 20" 
+                  fill="currentColor"
+                >
+                  <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                </svg>
+              </Link>
             </div>
-            <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-gray-800">Perfect For</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li className="flex items-start">
-                  <svg className="h-5 w-5 text-whippet-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Dog sports like flyball, agility, and coursing</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="h-5 w-5 text-whippet-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Hiking and outdoor adventures</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="h-5 w-5 text-whippet-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>Families looking for an intelligent and athletic companion</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="h-5 w-5 text-whippet-600 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span>People who appreciate both brains and beauty in their canine companions</span>
-                </li>
-              </ul>
+          </div>
+
+          {/* Breeding Card */}
+          <div className="group bg-gradient-to-b from-whippet-50 to-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-whippet-100">
+            <div className="p-8 text-center">
+              <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-whippet-100 text-whippet-600">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                </svg>
+              </div>
+              <h2 className="text-2xl font-display font-bold text-gray-900 group-hover:text-whippet-600 transition-colors mb-4">
+                {t('breeding.title')}
+              </h2>
+              <p className="text-gray-600 mb-6">
+                {t('breeding.description')}
+              </p>
+              <Link 
+                to="/breeding" 
+                className="inline-flex items-center space-x-2 text-whippet-600 hover:text-whippet-700 font-medium group/link"
+              >
+                <span>{t('diary.readMore')}</span>
+                <svg 
+                  className="h-5 w-5 transform group-hover/link:translate-x-1 transition-transform" 
+                  viewBox="0 0 20 20" 
+                  fill="currentColor"
+                >
+                  <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                </svg>
+              </Link>
+            </div>
+          </div>
+
+          {/* Flyball Card */}
+          <div className="group bg-gradient-to-b from-teal-50 to-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-teal-100">
+            <div className="p-8 text-center">
+              <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-teal-100 text-teal-600">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+                </svg>
+              </div>
+              <h2 className="text-2xl font-display font-bold text-gray-900 group-hover:text-teal-600 transition-colors mb-4">
+                {t('flyball.title')}
+              </h2>
+              <p className="text-gray-600 mb-6">
+                {t('flyball.description')}
+              </p>
+              <Link 
+                to="/flyball" 
+                className="inline-flex items-center space-x-2 text-teal-600 hover:text-teal-700 font-medium group/link"
+              >
+                <span>{t('diary.readMore')}</span>
+                <svg 
+                  className="h-5 w-5 transform group-hover/link:translate-x-1 transition-transform" 
+                  viewBox="0 0 20 20" 
+                  fill="currentColor"
+                >
+                  <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                </svg>
+              </Link>
             </div>
           </div>
         </div>
@@ -179,11 +212,11 @@ const Home = () => {
                   </div>
                 )}
                 <div className="p-6">
-                  <div className="flex items-center gap-2 text-sm text-whippet-600 mb-2">
+                  <div className="flex items-center gap-2 text-sm text-teal-600 mb-2">
                     <CalendarIcon className="h-4 w-4" />
                     <span>{new Date(entry.date).toLocaleDateString()}</span>
                   </div>
-                  <h3 className="text-xl font-display font-bold text-gray-900 group-hover:text-whippet-600 transition-colors mb-2">
+                  <h3 className="text-xl font-display font-bold text-gray-900 group-hover:text-teal-600 transition-colors mb-2">
                     {entry.title}
                   </h3>
                   <p className="text-gray-600 line-clamp-2">{entry.content}</p>
@@ -195,7 +228,7 @@ const Home = () => {
           <div className="text-center mt-8">
             <Link
               to="/diary"
-              className="inline-flex items-center space-x-2 text-whippet-600 hover:text-whippet-700 font-medium"
+              className="inline-flex items-center space-x-2 text-teal-600 hover:text-teal-700 font-medium"
             >
               <span>{t('diary.viewAll')}</span>
               <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -205,69 +238,34 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      {/* Services Section */}
-      <section className="space-y-8" id="physio">
-        <div className="text-center max-w-3xl mx-auto px-4">
-          <h2 className="section-title inline-block text-2xl sm:text-3xl">
-            {t('about.title')}
-          </h2>
-          <p className="text-gray-600 mt-4">
-            {t('about.description')}
-          </p>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-12">
-          <div className="card p-6 text-center space-y-4">
-            <div className="w-16 h-16 bg-whippet-100 rounded-full flex items-center justify-center mx-auto">
-              <HeartIcon className="h-8 w-8 text-whippet-600" />
-            </div>
-            <h3 className="text-lg sm:text-xl font-semibold text-gray-800">
-              {t('services.professionalCare.title')}
-            </h3>
-            <p className="text-gray-600">
-              {t('services.professionalCare.description')}
-            </p>
-          </div>
-          <div className="card p-6 text-center space-y-4">
-            <div className="w-16 h-16 bg-whippet-100 rounded-full flex items-center justify-center mx-auto">
-              <TrophyIcon className="h-8 w-8 text-whippet-600" />
-            </div>
-            <h3 className="text-lg sm:text-xl font-semibold text-gray-800">
-              {t('services.sportsExcellence.title')}
-            </h3>
-            <p className="text-gray-600">
-              {t('services.sportsExcellence.description')}
-            </p>
-          </div>
-          <div className="card p-6 text-center space-y-4">
-            <div className="w-16 h-16 bg-whippet-100 rounded-full flex items-center justify-center mx-auto">
-              <UserGroupIcon className="h-8 w-8 text-whippet-600" />
-            </div>
-            <h3 className="text-lg sm:text-xl font-semibold text-gray-800">
-              {t('services.expertise.title')}
-            </h3>
-            <p className="text-gray-600">
-              {t('services.expertise.description')}
-            </p>
-          </div>
-        </div>
-      </section>
-
+      
       {/* Contact Section */}
-      <section className="bg-cream-50 rounded-whippet p-6 sm:p-8 md:p-12" id="contact">
-        <div className="max-w-3xl mx-auto text-center space-y-6">
-          <h2 className="section-title inline-block text-2xl sm:text-3xl">
-            {t('contact.title')}
-          </h2>
-          <p className="text-gray-600">
-            {t('contact.description')}
-          </p>
-          <div className="inline-flex flex-col items-center space-y-2">
-            <p className="font-medium text-gray-800">{t('contact.details.name')}</p>
-            <p className="text-gray-600">{t('contact.details.title')}</p>
-            <p className="text-gray-600">{t('contact.details.subtitle')}</p>
-            <p className="text-gray-600">{t('contact.details.location')}</p>
+      <section className="container mx-auto px-4" id="contact">
+        <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
+          <div className="md:flex">
+            <div className="md:shrink-0">
+              <div className="h-48 w-full md:h-full md:w-48 flex items-center justify-center bg-teal-600">
+                <Logo size="lg" withText={false} />
+              </div>
+            </div>
+            <div className="p-8">
+              <div className="text-center md:text-left space-y-4">
+                <h2 className="text-2xl font-display font-bold text-gray-900">
+                  {t('contact.title')}
+                </h2>
+                <p className="text-gray-600">
+                  {t('contact.description')}
+                </p>
+                <div className="pt-4">
+                  <a
+                    href="mailto:contact@example.com"
+                    className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2 rounded-full transition-colors"
+                  >
+                    {t('contact.title')}
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

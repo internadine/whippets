@@ -1,12 +1,12 @@
 {
   "hero": {
-    "badge": "Ein neues Kapitel beginnt",
-    "title": "Begleiten Sie unsere",
-    "subtitle": "Whippet Reise",
-    "description": "Begleiten Sie uns in München bei der Dokumentation der wunderbaren Reise unserer Whippet-Familie. Während alle Welpen bereits ihr liebevolles Zuhause gefunden haben, laden wir Sie ein, ihre Entwicklung und Abenteuer mitzuerleben.",
+    "badge": "Willkommen",
+    "title": "Corinna Spitzer",
+    "subtitle": "Hundeexpertin",
+    "description": "Willkommen in meiner Welt der Hundeexpertise! Als leidenschaftliche Hundephysiotherapeutin, erfahrene Border-Whippet-Züchterin und engagierte Flyball-Trainerin freue ich mich, unsere gemeinsame Reise mit Ihnen zu teilen. Aktuell wachsen bei uns entzückende Welpen heran, die sorgfältig trainiert werden, um die nächste Generation von Flyball-Champions zu werden. Ob Sie sich für Hundegesundheit, Zucht oder Sport interessieren - Sie sind hier genau richtig!",
     "viewJourney": "Reise ansehen",
     "services": "Professionelle Dienste",
-    "imageAlt": "Unsere wunderschöne Whippet-Mutter in einer ruhigen Umgebung"
+    "imageAlt": "Unsere wunderschöne Border-Whippet-Mutter in einer ruhigen Umgebung"
   },
   "about": {
     "title": "Experten-Betreuung & Meisterschafts-Erfahrung",
@@ -148,6 +148,129 @@
     "diary": {
       "title": "Tagebucheinträge",
       "noEntries": "Noch keine Tagebucheinträge für diesen Welpen vorhanden."
+    }
+  },
+  "navbar": {
+    "tagline": "Hundephysiotherapie • Zucht • Flyball",
+    "physiotherapy": "Physiotherapie",
+    "breeding": "Zucht",
+    "flyball": "Flyball",
+    "gallery": "Galerie",
+    "diary": "Tagebuch",
+    "contact": "Kontakt"
+  },
+  "physiotherapy": {
+    "title": "Hundephysiotherapie",
+    "subtitle": "Professionelle Betreuung für Ihren Vierbeiner",
+    "description": "Corinna Spitzer ist eine zertifizierte Hundephysiotherapeutin mit Sitz in München, spezialisiert auf Rehabilitation, Sportmedizin und Leistungssteigerung für Hunde aller Rassen und Größen.",
+    "services": {
+      "title": "Leistungen",
+      "rehabilitation": {
+        "title": "Rehabilitation",
+        "description": "Spezialisierte Therapie für die Genesung nach Operationen, Rehabilitation nach Verletzungen und Behandlung chronischer Erkrankungen."
+      },
+      "sportsMedicine": {
+        "title": "Sportmedizin",
+        "description": "Leistungsoptimierung und Verletzungsprävention für Sport- und Arbeitshunde."
+      },
+      "geriatricCare": {
+        "title": "Seniorenbetreuung",
+        "description": "Unterstützende Therapie für ältere Hunde zur Erhaltung der Mobilität und Lebensqualität."
+      },
+      "consultations": {
+        "title": "Beratungen",
+        "description": "Professionelle Beratung zu Heimübungen, Mobilitätshilfen und Anpassungen für Hunde mit besonderen Bedürfnissen."
+      }
+    },
+    "approach": {
+      "title": "Mein Ansatz",
+      "description": "Jeder Behandlungsplan wird individuell auf die spezifischen Bedürfnisse Ihres Hundes zugeschnitten, unter Berücksichtigung von Rasse, Alter, Zustand und Lebensstil. Ich kombiniere traditionelle Handtechniken mit modernen therapeutischen Geräten, um die besten Ergebnisse für Ihren Vierbeiner zu erzielen."
+    },
+    "contact": {
+      "title": "Termin vereinbaren",
+      "description": "Kontaktieren Sie mich, um einen Beratungs- oder Behandlungstermin für Ihren Hund zu vereinbaren."
+    }
+  },
+  "breeding": {
+    "title": "Border Whippet Zucht",
+    "subtitle": "Elegante & Anmutige Begleiter",
+    "description": "Unser Zuchtprogramm konzentriert sich auf die Produktion gesunder, gut temperierter Border Whippet Welpen, die die Intelligenz von Border Collies mit der Anmut und Geschwindigkeit von Whippets verbinden.",
+    "about": {
+      "title": "Über Border Whippets",
+      "description": "Border Whippets sind eine energiegeladene Kreuzung, die die Intelligenz und Trainierbarkeit von Border Collies zusammen mit der schnellen, eleganten Bewegung von Whippets erben. Diese Hunde überzeugen in verschiedenen Hundesportarten und sind gleichzeitig wunderbare Familienbegleiter."
+    },
+    "puppies": {
+      "title": "Unsere Welpen",
+      "description": "Verfolgen Sie den Weg unserer Border Whippet Welpen durch unsere Galerie und Tagebucheinträge. Während alle Welpen aus unserem aktuellen Wurf bereits ihr Zuhause gefunden haben, können Sie sich über zukünftige Würfe auf dem Laufenden halten."
+    },
+    "parents": {
+      "title": "Lernen Sie die Eltern kennen",
+      "description": "Unsere sorgfältig ausgewählten Elterntiere bringen die besten Eigenschaften beider Rassen mit, was gesunde, athletische Welpen mit exzellentem Temperament garantiert."
+    },
+    "contact": {
+      "title": "Interesse an einem Border Whippet?",
+      "description": "Kontaktieren Sie uns, um mehr über unser Zuchtprogramm zu erfahren oder sich nach zukünftigen Würfen zu erkundigen."
+    }
+  },
+  "flyball": {
+    "title": "Flyball",
+    "subtitle": "Geschwindigkeit, Präzision, Teamwork",
+    "description": "Corinna Spitzer ist eine aktive Teilnehmerin in der deutschen Flyball-Szene als Teil des Teams Flyball-Junkies, mit nationalen und internationalen Erfolgen, darunter der deutsche Rekord von 15,93 Sekunden und der Vize-Europameistertitel 2019 in der Division 1.",
+    "achievements": {
+      "title": "Erfolge",
+      "items": [
+        "Deutscher Rekord von 15,93 Sekunden mit Team Flyball-Junkies",
+        "Vize-Europameister 2019 in Division 1",
+        "Regelmäßige Teilnahme an nationalen und internationalen Wettbewerben"
+      ]
+    },
+    "yoda": {
+      "title": "Lernen Sie Yoda kennen",
+      "description": "Yoda gilt als einer der schnellsten Flyball-Hunde Deutschlands mit einer Laufzeit von 3,48 Sekunden über die 15,55 Meter lange Strecke."
+    },
+    "involvement": {
+      "title": "Organisatorisches Engagement",
+      "description": "Corinna ist lizenzierte Flyball-Richterin und Ansprechpartnerin für Flyball beim Deutschen Verband der Gebrauchshundsportvereine (DVG). Zudem gehört sie dem Ausschuss für Flyball des Verbands für das Deutsche Hundewesen (VDH) an."
+    },
+    "training": {
+      "title": "Training & Teamwork",
+      "description": "Zusammen mit Sebastian Dirksen (ebenfalls Besitzer von Yoda) reist Corinna regelmäßig aus München nach Oberfranken, um mit dem Team Flyball Oberfranken zu trainieren."
+    },
+    "forEveryDog": {
+      "title": "Flyball für jeden Hund",
+      "description": "Corinna betont, dass Flyball für jeden gesunden, motivierten Hund geeignet ist, unabhängig von Rasse oder Größe. Es ist ein fantastischer Sport, der die Bindung zwischen Hund und Halter stärkt und gleichzeitig hervorragende körperliche und geistige Bewegung bietet."
+    }
+  },
+  "imprint": {
+    "title": "Impressum",
+    "legalInfo": "Angaben gemäß § 5 TMG",
+    "contact": "Kontakt",
+    "professionalTitle": "Berufsbezeichnung und berufsrechtliche Regelungen",
+    "professionalInfo": {
+      "title": "Berufsbezeichnung: Hundephysiotherapeutin",
+      "country": "Verliehen in: Deutschland"
+    },
+    "disputeResolution": {
+      "title": "Streitschlichtung",
+      "platform": "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit",
+      "participation": "Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
+    },
+    "liability": {
+      "content": {
+        "title": "Haftung für Inhalte",
+        "text1": "Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.",
+        "text2": "Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen."
+      },
+      "links": {
+        "title": "Haftung für Links",
+        "text1": "Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.",
+        "text2": "Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen."
+      }
+    },
+    "copyright": {
+      "title": "Urheberrecht",
+      "text1": "Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.",
+      "text2": "Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen."
     }
   }
 } 

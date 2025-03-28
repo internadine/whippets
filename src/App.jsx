@@ -11,6 +11,10 @@ import DiaryManager from './pages/admin/DiaryManager';
 import ContentManager from './pages/admin/ContentManager';
 import ProtectedRoute from './components/ProtectedRoute';
 import Layout from './components/Layout';
+import Physiotherapy from './pages/Physiotherapy';
+import Breeding from './pages/Breeding';
+import Flyball from './pages/Flyball';
+import Imprint from './pages/Imprint';
 
 const router = {
   future: {
@@ -26,11 +30,15 @@ function App() {
           {/* Public Routes */}
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
+            <Route path="/physiotherapy" element={<Physiotherapy />} />
+            <Route path="/breeding" element={<Breeding />} />
+            <Route path="/flyball" element={<Flyball />} />
             <Route path="/gallery" element={<PuppyGallery />} />
             <Route path="/puppy/:id" element={<PuppyProfile />} />
             <Route path="/diary" element={<DiaryPage />} />
             <Route path="/diary/:entryId" element={<DiaryEntryPage />} />
             <Route path="/puppy/:id/diary" element={<DiaryPage />} />
+            <Route path="/imprint" element={<Imprint />} />
           </Route>
 
           {/* Admin Routes */}
